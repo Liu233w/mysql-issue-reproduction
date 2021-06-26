@@ -16,7 +16,7 @@ namespace LongtextIssue.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
-                .HasAnnotation("ProductVersion", "5.0.7");
+                .HasAnnotation("ProductVersion", "3.1.1");
 
             modelBuilder.Entity("LongtextIssue.Entity", b =>
                 {
@@ -26,7 +26,7 @@ namespace LongtextIssue.Migrations
 
                     b.Property<string>("LongString")
                         .HasMaxLength(5000)
-                        .HasColumnType("varchar(5000)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
 
