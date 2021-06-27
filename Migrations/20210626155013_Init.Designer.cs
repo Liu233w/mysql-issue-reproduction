@@ -26,7 +26,7 @@ namespace LongtextIssue.Migrations
 
                     b.Property<string>("LongString")
                         .HasMaxLength(5000)
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
