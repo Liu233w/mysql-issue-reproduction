@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LongtextIssue
 {
@@ -6,7 +7,7 @@ namespace LongtextIssue
     {
         public int Id { get; set; }
         
-        [StringLength(5000)]
+        [Column(TypeName = "longtext")]
         public string LongString { get; set; }
     }
 }
