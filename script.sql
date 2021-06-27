@@ -11,7 +11,7 @@ START TRANSACTION;
 
 CREATE TABLE `Entities` (
     `Id` int NOT NULL AUTO_INCREMENT,
-    `LongString` longtext CHARACTER SET utf8mb4(5000) NULL,
+    `LongString` longtext NULL,
     CONSTRAINT `PK_Entities` PRIMARY KEY (`Id`)
 );
 
@@ -22,10 +22,19 @@ COMMIT;
 
 START TRANSACTION;
 
+ALTER TABLE `Entities` MODIFY COLUMN `LongString` longtext NULL;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20210627094916_RemoveCharSet', '5.0.7');
+
+COMMIT;
+
+START TRANSACTION;
+
 ALTER TABLE `Entities` MODIFY COLUMN `LongString` varchar(5000) CHARACTER SET utf8mb4 NULL;
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20210626162110_Upgrade', '5.0.7');
+VALUES ('20210627095222_UpgradeLibrary', '5.0.7');
 
 COMMIT;
 
