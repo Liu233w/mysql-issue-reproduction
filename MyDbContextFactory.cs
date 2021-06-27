@@ -11,7 +11,7 @@ namespace LongtextIssue
         {
             var optionsBuilder = new DbContextOptionsBuilder<MyDbContext>();
             optionsBuilder.UseMySql("Server=localhost; port=3306; Database=test_database;",
-                opt => opt.CharSetBehavior(CharSetBehavior.NeverAppend));
+                new MySqlServerVersion(new Version(8, 0)));
 
             return new MyDbContext(optionsBuilder.Options);
         }
