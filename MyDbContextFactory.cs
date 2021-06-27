@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace LongtextIssue
 {
@@ -10,7 +11,7 @@ namespace LongtextIssue
         {
             var optionsBuilder = new DbContextOptionsBuilder<MyDbContext>();
             optionsBuilder.UseMySql("Server=localhost; port=3306; Database=test_database;",
-                new MySqlServerVersion(new Version(8, 0)));
+                opt => opt.CharSetBehavior(CharSetBehavior.NeverAppend));
 
             return new MyDbContext(optionsBuilder.Options);
         }
